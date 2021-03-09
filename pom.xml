@@ -83,11 +83,6 @@
             </dependency>
             <dependency>
                 <groupId>org.wildfly.core</groupId>
-                <artifactId>wildfly-core-test-runner</artifactId>
-                <version>${version.org.wildfly.core}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wildfly.core</groupId>
                 <artifactId>wildfly-controller-client</artifactId>
                 <version>${version.org.wildfly.core}</version>
             </dependency>
@@ -119,10 +114,57 @@
             </plugins>
         </pluginManagement>
     </build>
+
     <modules>
         <module>galleon-feature-pack</module>
         <module>testsuite</module>
     </modules>
+
+    <repositories>
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>jboss-earlyaccess-repository-group</id>
+            <name>JBoss EarlyAccess Repository Group</name>
+            <url>https://maven.repository.redhat.com/earlyaccess/all</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>redhat-ga</id>
+            <name>Redhat GA</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <scm>
         <connection>scm:git:${jbossas.repo.scm.connection}</connection>
         <developerConnection>scm:git:${jbossas.repo.scm.connection}</developerConnection>
