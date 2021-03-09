@@ -25,7 +25,6 @@
         <version>7.4.0.Beta1-SNAPSHOT</version>
     </parent>
     <artifactId>eap-datasources-galleon-pack-testsuite</artifactId>
-    <packaging>pom</packaging>
     <name>Drivers and datasources for JBoss Entreprise Application Platform galleon testsuite</name>
     <description>Drivers and datasources for JBoss Entreprise Application Platform galleon testsuite</description>
 
@@ -36,6 +35,26 @@
             <version>${project.version}</version>
             <type>zip</type>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.core</groupId>
+            <artifactId>wildfly-core-test-runner</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.core</groupId>
+            <artifactId>wildfly-controller-client</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss</groupId>
+            <artifactId>jboss-dmr</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>                
@@ -68,7 +87,7 @@
                             </layers>
                         </config>
                     </configurations>
-                    <install-dir>${project.build.directory}/wildfly</install-dir>
+                    <install-dir>${project.build.directory}/jboss-eap</install-dir>
                     <plugin-options>
                         <jboss-fork-embedded>${plugin.fork.embedded}</jboss-fork-embedded>
                     </plugin-options>
@@ -81,6 +100,118 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <executions>
+                             <execution>
+                                <id>test-with-all-env</id>
+                                <goals>
+                                    <goal>test</goal>
+                                </goals>
+                                <phase>test</phase>
+                                <configuration>
+                                    <environmentVariables>
+                                        <EAP_WITH_ALL_ENV_TEST>true</EAP_WITH_ALL_ENV_TEST>
+                                        <MARIADB_ENABLED>false</MARIADB_ENABLED>
+                                        <MARIADB_EXCEPTION_SORTER>envfoo</MARIADB_EXCEPTION_SORTER>
+                                        <MARIADB_JNDI>envbar</MARIADB_JNDI>
+                                        <MARIADB_JTA>true</MARIADB_JTA>
+                                        <MARIADB_MAX_POOL_SIZE>8888</MARIADB_MAX_POOL_SIZE>
+                                        <MARIADB_MIN_POOL_SIZE>77</MARIADB_MIN_POOL_SIZE>
+                                        <MARIADB_URL>envfoourl</MARIADB_URL>
+                                        <MARIADB_USER>envfoouser</MARIADB_USER>
+                                        <MARIADB_PASSWORD>envfoopassword</MARIADB_PASSWORD>
+                                        <MARIADB_VALIDATE_ON_MATCH>false</MARIADB_VALIDATE_ON_MATCH>
+                                        <MARIADB_BACKGROUND_VALIDATION>true</MARIADB_BACKGROUND_VALIDATION>
+                                        <MARIADB_BACKGROUND_VALIDATION_MILLIS>7</MARIADB_BACKGROUND_VALIDATION_MILLIS>
+                                        <MARIADB_STALE_CONNECTION_CHECKER>envfoostalechecker</MARIADB_STALE_CONNECTION_CHECKER>
+                                        <MARIADB_CONNECTION_CHECKER>envfoochecker</MARIADB_CONNECTION_CHECKER>
+                                        <MARIADB_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</MARIADB_TX_ISOLATION>
+                                        
+                                        <ORACLE_ENABLED>false</ORACLE_ENABLED>
+                                        <ORACLE_EXCEPTION_SORTER>envfoo</ORACLE_EXCEPTION_SORTER>
+                                        <ORACLE_JNDI>envbar</ORACLE_JNDI>
+                                        <ORACLE_JTA>true</ORACLE_JTA>
+                                        <ORACLE_MAX_POOL_SIZE>8888</ORACLE_MAX_POOL_SIZE>
+                                        <ORACLE_MIN_POOL_SIZE>77</ORACLE_MIN_POOL_SIZE>
+                                        <ORACLE_URL>envfoourl</ORACLE_URL>
+                                        <ORACLE_USER>envfoouser</ORACLE_USER>
+                                        <ORACLE_PASSWORD>envfoopassword</ORACLE_PASSWORD>
+                                        <ORACLE_VALIDATE_ON_MATCH>false</ORACLE_VALIDATE_ON_MATCH>
+                                        <ORACLE_BACKGROUND_VALIDATION>true</ORACLE_BACKGROUND_VALIDATION>
+                                        <ORACLE_BACKGROUND_VALIDATION_MILLIS>7</ORACLE_BACKGROUND_VALIDATION_MILLIS>
+                                        <ORACLE_STALE_CONNECTION_CHECKER>envfoostalechecker</ORACLE_STALE_CONNECTION_CHECKER>
+                                        <ORACLE_CONNECTION_CHECKER>envfoochecker</ORACLE_CONNECTION_CHECKER>
+                                        <ORACLE_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</ORACLE_TX_ISOLATION>
+                                        
+                                        <POSTGRESQL_ENABLED>false</POSTGRESQL_ENABLED>
+                                        <POSTGRESQL_EXCEPTION_SORTER>envfoo</POSTGRESQL_EXCEPTION_SORTER>
+                                        <POSTGRESQL_JNDI>envbar</POSTGRESQL_JNDI>
+                                        <POSTGRESQL_JTA>true</POSTGRESQL_JTA>
+                                        <POSTGRESQL_MAX_POOL_SIZE>8888</POSTGRESQL_MAX_POOL_SIZE>
+                                        <POSTGRESQL_MIN_POOL_SIZE>77</POSTGRESQL_MIN_POOL_SIZE>
+                                        <POSTGRESQL_URL>envfoourl</POSTGRESQL_URL>
+                                        <POSTGRESQL_USER>envfoouser</POSTGRESQL_USER>
+                                        <POSTGRESQL_PASSWORD>envfoopassword</POSTGRESQL_PASSWORD>
+                                        <POSTGRESQL_VALIDATE_ON_MATCH>false</POSTGRESQL_VALIDATE_ON_MATCH>
+                                        <POSTGRESQL_BACKGROUND_VALIDATION>true</POSTGRESQL_BACKGROUND_VALIDATION>
+                                        <POSTGRESQL_BACKGROUND_VALIDATION_MILLIS>7</POSTGRESQL_BACKGROUND_VALIDATION_MILLIS>
+                                        <POSTGRESQL_STALE_CONNECTION_CHECKER>envfoostalechecker</POSTGRESQL_STALE_CONNECTION_CHECKER>
+                                        <POSTGRESQL_CONNECTION_CHECKER>envfoochecker</POSTGRESQL_CONNECTION_CHECKER>
+                                        <POSTGRESQL_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</POSTGRESQL_TX_ISOLATION>
+                                        
+                                    </environmentVariables>
+                                </configuration>
+                             </execution>
+                             <execution>
+                                <id>test-with-no-service-env</id>
+                                <goals>
+                                    <goal>test</goal>
+                                </goals>
+                                <phase>test</phase>
+                                <configuration>
+                                    <environmentVariables>
+                                        <EAP_WITH_ENV_TEST>true</EAP_WITH_ENV_TEST>
+                                        <MARIADB_HOST>envfoohost</MARIADB_HOST>
+                                        <MARIADB_PORT>envfooport</MARIADB_PORT>
+                                        <MARIADB_DATABASE>envbardatabase</MARIADB_DATABASE>
+                                        <MARIADB_DATASOURCE>envbardatasource</MARIADB_DATASOURCE>
+                                        
+                                        <POSTGRESQL_HOST>envfoohost</POSTGRESQL_HOST>
+                                        <POSTGRESQL_PORT>envfooport</POSTGRESQL_PORT>
+                                        <POSTGRESQL_DATABASE>envbardatabase</POSTGRESQL_DATABASE>
+                                        <POSTGRESQL_DATASOURCE>envbardatasource</POSTGRESQL_DATASOURCE>
+                                        
+                                        <ORACLE_DATASOURCE>envbardatasource</ORACLE_DATASOURCE>
+                                    </environmentVariables>
+                                </configuration>
+                             </execution>
+                             <execution>
+                                <id>test-with-service-env</id>
+                                <goals>
+                                    <goal>test</goal>
+                                </goals>
+                                <phase>test</phase>
+                                <configuration>
+                                    <environmentVariables>
+                                        <EAP_WITH_ENV_TEST>true</EAP_WITH_ENV_TEST>
+                                        <MARIADB_SERVICE_HOST>envfoohost</MARIADB_SERVICE_HOST>
+                                        <MARIADB_SERVICE_PORT>envfooport</MARIADB_SERVICE_PORT>
+                                        <MARIADB_DATABASE>envbardatabase</MARIADB_DATABASE>
+                                        <MARIADB_DATASOURCE>envbardatasource</MARIADB_DATASOURCE>
+                                        
+                                        <POSTGRESQL_SERVICE_HOST>envfoohost</POSTGRESQL_SERVICE_HOST>
+                                        <POSTGRESQL_SERVICE_PORT>envfooport</POSTGRESQL_SERVICE_PORT>
+                                        <POSTGRESQL_DATABASE>envbardatabase</POSTGRESQL_DATABASE>
+                                        <POSTGRESQL_DATASOURCE>envbardatasource</POSTGRESQL_DATASOURCE>
+                                        
+                                        <ORACLE_DATASOURCE>envbardatasource</ORACLE_DATASOURCE>
+                                    </environmentVariables>
+                                </configuration>
+                             </execution>
+                        </executions>
             </plugin>
         </plugins>
     </build>

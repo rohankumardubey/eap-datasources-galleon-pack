@@ -41,10 +41,13 @@
     <properties>
         <version.org.jboss.eap>7.4.0.Beta-redhat-00001</version.org.jboss.eap>
         <version.org.wildfly.galleon-plugins>5.1.0.Final</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly.core>14.0.1.Final-redhat-00001</version.org.wildfly.core>
+        <version.org.jboss.jboss-dmr>1.5.1.Final</version.org.jboss.jboss-dmr>
         <version.org.jboss.galleon>4.2.7.Final</version.org.jboss.galleon>
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
         <version.org.mariadb>2.7.2</version.org.mariadb>
         <version.org.postgresql.postgresql>42.2.19</version.org.postgresql.postgresql>
+        <version.junit>4.13.1</version.junit>
         <jbossas.repo.scm.connection>git@github.com:jbossas/eap-datasources-galleon-pack.git</jbossas.repo.scm.connection>
         <jbossas.repo.scm.url>https://github.com/jbossas/eap-datasources-galleon-pack</jbossas.repo.scm.url>   
     </properties>
@@ -70,6 +73,33 @@
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${version.org.postgresql.postgresql}</version>
+            </dependency>
+            
+            <!-- tests -->
+            <dependency>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-core-test-runner</artifactId>
+                <version>${version.org.wildfly.core}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-core-test-runner</artifactId>
+                <version>${version.org.wildfly.core}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.core</groupId>
+                <artifactId>wildfly-controller-client</artifactId>
+                <version>${version.org.wildfly.core}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss</groupId>
+                <artifactId>jboss-dmr</artifactId>
+                <version>${version.org.jboss.jboss-dmr}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${version.junit}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

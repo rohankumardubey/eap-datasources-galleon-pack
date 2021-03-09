@@ -29,6 +29,32 @@
     <name>Drivers and datasources for JBoss Entreprise Application Platform testsuite parent</name>
     <description>Drivers and datasources for JBoss Entreprise Application Platform testsuite parent</description>
 
+    <properties>
+        <testLogToFile>true</testLogToFile>
+        <node0>127.0.0.1</node0>
+        <management.address>${node0}</management.address>
+        <jboss.args>--start-mode=admin-only</jboss.args>
+    </properties>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <failIfNoTests>false</failIfNoTests>
+                    <redirectTestOutputToFile>${testLogToFile}</redirectTestOutputToFile>
+                    <systemPropertyVariables>
+                        <jboss.home>${basedir}/target/jboss-eap</jboss.home>
+                        <management.address>${management.address}</management.address>
+                        <jboss.args>${jboss.args}</jboss.args>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    
     <modules>
         <module>galleon</module>
     </modules>
