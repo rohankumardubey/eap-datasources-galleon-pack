@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="postgresql-datasource">
+    <dependencies>
+        <layer name="postgresql-driver"/>
+    </dependencies>
+    
+    <feature spec="subsystem.datasources.data-source">
+        <param name="use-ccm" value="true"/>
+        <!-- we can't use expression for pool-name (data-source name) hard coding should be fine, the important thing is JNDI -->
+        <param name="data-source" value="PostgreSQLDS"/>
+        <param name="enabled" value="${org.jboss.eap.datasources.postgresql.enabled, env.POSTGRESQL_ENABLED:true}"/>
+        <param name="exception-sorter-class-name" value="${org.jboss.eap.datasources.postgresql.exception.sorter, env.POSTGRESQL_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter}"/>
+        <param name="use-java-context" value="true"/>
+        <param name="jndi-name" value="${org.jboss.eap.datasources.postgresql.jndi,env.POSTGRESQL_JNDI:java:jboss/datasources/${org.jboss.eap.datasources.postgresql.datasource, env.POSTGRESQL_DATASOURCE:PostgreSQLDS}}"/>
+        <param name="jta" value="${org.jboss.eap.datasources.jta,env.POSTGRESQL_JTA:false}"/>
+        <param name="max-pool-size" value="${org.jboss.eap.datasources.postgresql.max-pool-size,env.POSTGRESQL_MAX_POOL_SIZE:20}"/>
+        <param name="min-pool-size" value="${org.jboss.eap.datasources.postgresql.min-pool-size,env.POSTGRESQL_MIN_POOL_SIZE:0}"/>
+        <param name="connection-url" value="${org.jboss.eap.datasources.postgresql.url,env.POSTGRESQL_URL:jdbc:postgresql://${org.jboss.eap.datasources.postgresql.service.host,env.POSTGRESQL_SERVICE_HOST}:${org.jboss.eap.datasources.postgresql.service.port,env.POSTGRESQL_SERVICE_PORT}/${org.jboss.eap.datasources.postgresql.database,env.POSTGRESQL_DATABASE}}"/>
+        <param name="driver-name" value="postgresql"/>
+        <param name="user-name" value="${org.jboss.eap.datasources.postgresql.user,env.POSTGRESQL_USER}"/>
+        <param name="password" value="${org.jboss.eap.datasources.postgresql.password,env.POSTGRESQL_PASSWORD}"/>
+        <param name="check-valid-connection-sql" value="SELECT 1"/>
+        <param name="validate-on-match" value="${org.jboss.eap.datasources.postgresql.validate-on-match,env.POSTGRESQL_VALIDATE_ON_MATCH:true}"/>
+        <param name="background-validation" value="${org.jboss.eap.datasources.postgresql.background-validation,env.POSTGRESQL_BACKGROUND_VALIDATION:false}"/>
+        <param name="background-validation-millis" value="${org.jboss.eap.datasources.postgresql.background-validation.millis,env.POSTGRESQL_BACKGROUND_VALIDATION_MILLIS:10000}"/>
+        <param name="flush-strategy" value="IdleConnections"/>
+        <param name="statistics-enabled" value="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}" />
+        <param name="stale-connection-checker-class-name" value="${org.jboss.eap.datasources.postgresql.stale-connection-checker,env.POSTGRESQL_STALE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.postgres.StaleConnectionChecker}" />
+        <param name="valid-connection-checker-class-name" value="${org.jboss.eap.datasources.postgresql.connection-checker,env.POSTGRESQL_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker}"/>
+        <param name="transaction-isolation" value="${org.jboss.eap.datasources.postgresql.tx-isolation,env.POSTGRESQL_TX_ISOLATION:TRANSACTION_READ_COMMITTED}"/>
+    </feature>
+</layer-spec>
+
