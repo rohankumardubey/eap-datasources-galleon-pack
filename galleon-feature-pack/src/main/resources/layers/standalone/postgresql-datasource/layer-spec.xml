@@ -12,7 +12,7 @@
         <param name="exception-sorter-class-name" value="${org.jboss.eap.datasources.postgresql.exception-sorter-class-name, env.POSTGRESQL_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter}"/>
         <param name="use-java-context" value="true"/>
         <param name="jndi-name" value="${org.jboss.eap.datasources.postgresql.jndi-name,env.POSTGRESQL_JNDI:java:jboss/datasources/${org.jboss.eap.datasources.postgresql.datasource, env.POSTGRESQL_DATASOURCE:PostgreSQLDS}}"/>
-        <param name="jta" value="${org.jboss.eap.datasources.postgresql.jta,env.POSTGRESQL_JTA:false}"/>
+        <param name="jta" value="${org.jboss.eap.datasources.postgresql.jta,env.POSTGRESQL_JTA:true}"/>
         <param name="max-pool-size" value="${org.jboss.eap.datasources.postgresql.max-pool-size,env.POSTGRESQL_MAX_POOL_SIZE:20}"/>
         <param name="min-pool-size" value="${org.jboss.eap.datasources.postgresql.min-pool-size,env.POSTGRESQL_MIN_POOL_SIZE:0}"/>
         <param name="connection-url" value="${org.jboss.eap.datasources.postgresql.connection-url,env.POSTGRESQL_URL:jdbc:postgresql://${org.jboss.eap.datasources.postgresql.service.host,env.POSTGRESQL_SERVICE_HOST,env.POSTGRESQL_HOST}:${org.jboss.eap.datasources.postgresql.service.port,env.POSTGRESQL_SERVICE_PORT,env.POSTGRESQL_PORT}/${org.jboss.eap.datasources.postgresql.database,env.POSTGRESQL_DATABASE}}"/>

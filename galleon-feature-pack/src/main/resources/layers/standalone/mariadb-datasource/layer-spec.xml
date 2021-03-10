@@ -12,7 +12,7 @@
         <param name="exception-sorter-class-name" value="${org.jboss.eap.datasources.mariadb.exception-sorter-class-name,env.MARIADB_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter}"/>
         <param name="use-java-context" value="true"/>
         <param name="jndi-name" value="${org.jboss.eap.datasources.mariadb.jndi-name,env.MARIADB_JNDI:java:jboss/datasources/${org.jboss.eap.datasources.mariadb.datasource,env.MARIADB_DATASOURCE:MariaDBDS}}"/>
-        <param name="jta" value="${org.jboss.eap.datasources.mariadb.jta,env.MARIADB_JTA:false}"/>
+        <param name="jta" value="${org.jboss.eap.datasources.mariadb.jta,env.MARIADB_JTA:true}"/>
         <param name="max-pool-size" value="${org.jboss.eap.datasources.mariadb.max-pool-size,env.MARIADB_MAX_POOL_SIZE:20}"/>
         <param name="min-pool-size" value="${org.jboss.eap.datasources.mariadb.min-pool-size,env.MARIADB_MIN_POOL_SIZE:0}"/>
         <param name="connection-url" value="${org.jboss.eap.datasources.mariadb.connection-url,env.MARIADB_URL:jdbc:mariadb://${org.jboss.eap.datasources.mariadb.service.host,env.MARIADB_SERVICE_HOST,env.MARIADB_HOST}:${org.jboss.eap.datasources.mariadb.service.port,env.MARIADB_SERVICE_PORT,env.MARIADB_PORT}/${org.jboss.eap.datasources.mariadb.database,env.MARIADB_DATABASE}}"/>

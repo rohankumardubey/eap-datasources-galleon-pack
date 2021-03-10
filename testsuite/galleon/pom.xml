@@ -117,7 +117,7 @@
                                         <MARIADB_ENABLED>false</MARIADB_ENABLED>
                                         <MARIADB_EXCEPTION_SORTER>envfoo</MARIADB_EXCEPTION_SORTER>
                                         <MARIADB_JNDI>envbar</MARIADB_JNDI>
-                                        <MARIADB_JTA>true</MARIADB_JTA>
+                                        <MARIADB_JTA>false</MARIADB_JTA>
                                         <MARIADB_MAX_POOL_SIZE>8888</MARIADB_MAX_POOL_SIZE>
                                         <MARIADB_MIN_POOL_SIZE>77</MARIADB_MIN_POOL_SIZE>
                                         <MARIADB_URL>envfoourl</MARIADB_URL>
@@ -133,7 +133,7 @@
                                         <ORACLE_ENABLED>false</ORACLE_ENABLED>
                                         <ORACLE_EXCEPTION_SORTER>envfoo</ORACLE_EXCEPTION_SORTER>
                                         <ORACLE_JNDI>envbar</ORACLE_JNDI>
-                                        <ORACLE_JTA>true</ORACLE_JTA>
+                                        <ORACLE_JTA>false</ORACLE_JTA>
                                         <ORACLE_MAX_POOL_SIZE>8888</ORACLE_MAX_POOL_SIZE>
                                         <ORACLE_MIN_POOL_SIZE>77</ORACLE_MIN_POOL_SIZE>
                                         <ORACLE_URL>envfoourl</ORACLE_URL>
@@ -149,7 +149,7 @@
                                         <POSTGRESQL_ENABLED>false</POSTGRESQL_ENABLED>
                                         <POSTGRESQL_EXCEPTION_SORTER>envfoo</POSTGRESQL_EXCEPTION_SORTER>
                                         <POSTGRESQL_JNDI>envbar</POSTGRESQL_JNDI>
-                                        <POSTGRESQL_JTA>true</POSTGRESQL_JTA>
+                                        <POSTGRESQL_JTA>false</POSTGRESQL_JTA>
                                         <POSTGRESQL_MAX_POOL_SIZE>8888</POSTGRESQL_MAX_POOL_SIZE>
                                         <POSTGRESQL_MIN_POOL_SIZE>77</POSTGRESQL_MIN_POOL_SIZE>
                                         <POSTGRESQL_URL>envfoourl</POSTGRESQL_URL>

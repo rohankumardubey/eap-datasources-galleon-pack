@@ -11,7 +11,7 @@
         <param name="exception-sorter-class-name" value="${org.jboss.eap.datasources.oracle.exception-sorter-class-name,env.ORACLE_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter}"/>
         <param name="use-java-context" value="true"/>
         <param name="jndi-name" value="${org.jboss.eap.datasources.oracle.jndi-name,env.ORACLE_JNDI:java:jboss/datasources/${org.jboss.eap.datasources.oracle.datasource,env.ORACLE_DATASOURCE:OracleDS}}"/>
-        <param name="jta" value="${org.jboss.eap.datasources.oracle.jta,env.ORACLE_JTA:false}"/>
+        <param name="jta" value="${org.jboss.eap.datasources.oracle.jta,env.ORACLE_JTA:true}"/>
         <param name="max-pool-size" value="${org.jboss.eap.datasources.oracle.max-pool-size,env.ORACLE_MAX_POOL_SIZE:20}"/>
         <param name="min-pool-size" value="${org.jboss.eap.datasources.oracle.min-pool-size,env.ORACLE_MIN_POOL_SIZE:0}"/>
         <param name="connection-url" value="${org.jboss.eap.datasources.oracle.connection-url,env.ORACLE_URL}"/>
