@@ -82,7 +82,7 @@ public class SimpleTestCase {
         COMMON_DEFAULT_VALUES.put("background-validation", "false");
         COMMON_DEFAULT_VALUES.put("background-validation-millis", "10000");
         COMMON_DEFAULT_VALUES.put("enabled", "true");
-        COMMON_DEFAULT_VALUES.put("jta", "false");
+        COMMON_DEFAULT_VALUES.put("jta", "true");
         COMMON_DEFAULT_VALUES.put("max-pool-size", "20");
         COMMON_DEFAULT_VALUES.put("min-pool-size", "0");
         COMMON_DEFAULT_VALUES.put("statistics-enabled", "false");
@@ -123,7 +123,7 @@ public class SimpleTestCase {
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".exception-sorter-class-name", "foo");
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".jndi-name", "bar");
 
-        SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".jta", "true");
+        SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".jta", "false");
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".max-pool-size", "9999");
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".min-pool-size", "55");
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".connection-url", "foourl");
