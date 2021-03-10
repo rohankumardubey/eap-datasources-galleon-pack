@@ -15,7 +15,7 @@
         <param name="jta" value="${org.jboss.eap.datasources.postgresql.jta,env.POSTGRESQL_JTA:true}"/>
         <param name="max-pool-size" value="${org.jboss.eap.datasources.postgresql.max-pool-size,env.POSTGRESQL_MAX_POOL_SIZE:20}"/>
         <param name="min-pool-size" value="${org.jboss.eap.datasources.postgresql.min-pool-size,env.POSTGRESQL_MIN_POOL_SIZE:0}"/>
-        <param name="connection-url" value="${org.jboss.eap.datasources.postgresql.connection-url,env.POSTGRESQL_URL:jdbc:postgresql://${org.jboss.eap.datasources.postgresql.service.host,env.POSTGRESQL_SERVICE_HOST,env.POSTGRESQL_HOST}:${org.jboss.eap.datasources.postgresql.service.port,env.POSTGRESQL_SERVICE_PORT,env.POSTGRESQL_PORT}/${org.jboss.eap.datasources.postgresql.database,env.POSTGRESQL_DATABASE}}"/>
+        <param name="connection-url" value="${org.jboss.eap.datasources.postgresql.connection-url,env.POSTGRESQL_URL:jdbc:postgresql://${org.jboss.eap.datasources.postgresql.host,env.POSTGRESQL_SERVICE_HOST,env.POSTGRESQL_HOST}:${org.jboss.eap.datasources.postgresql.port,env.POSTGRESQL_SERVICE_PORT,env.POSTGRESQL_PORT}/${org.jboss.eap.datasources.postgresql.database,env.POSTGRESQL_DATABASE}}"/>
         <param name="driver-name" value="postgresql"/>
         <param name="user-name" value="${org.jboss.eap.datasources.postgresql.user-name,env.POSTGRESQL_USER}"/>
         <param name="password" value="${org.jboss.eap.datasources.postgresql.password,env.POSTGRESQL_PASSWORD}"/>

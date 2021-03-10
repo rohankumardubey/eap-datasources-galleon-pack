@@ -91,7 +91,7 @@ public class SimpleTestCase {
 
         Map<String, String> mariadb = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(MARIADB_DS, mariadb);
-        mariadb.put("connection-url", "jdbc:mariadb://${org.jboss.eap.datasources.mariadb.service.host,env.MARIADB_SERVICE_HOST,env.MARIADB_HOST}:${org.jboss.eap.datasources.mariadb.service.port,env.MARIADB_SERVICE_PORT,env.MARIADB_PORT}/${org.jboss.eap.datasources.mariadb.database,env.MARIADB_DATABASE}");
+        mariadb.put("connection-url", "jdbc:mariadb://${org.jboss.eap.datasources.mariadb.host,env.MARIADB_SERVICE_HOST,env.MARIADB_HOST}:${org.jboss.eap.datasources.mariadb.port,env.MARIADB_SERVICE_PORT,env.MARIADB_PORT}/${org.jboss.eap.datasources.mariadb.database,env.MARIADB_DATABASE}");
         mariadb.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter");
         mariadb.put("jndi-name", "java:jboss/datasources/MariaDBDS");
         mariadb.put("password", "${org.jboss.eap.datasources.mariadb.password,env.MARIADB_PASSWORD}");
@@ -111,7 +111,7 @@ public class SimpleTestCase {
 
         Map<String, String> postgresql = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(POSTGRESQL_DS, postgresql);
-        postgresql.put("connection-url", "jdbc:postgresql://${org.jboss.eap.datasources.postgresql.service.host,env.POSTGRESQL_SERVICE_HOST,env.POSTGRESQL_HOST}:${org.jboss.eap.datasources.postgresql.service.port,env.POSTGRESQL_SERVICE_PORT,env.POSTGRESQL_PORT}/${org.jboss.eap.datasources.postgresql.database,env.POSTGRESQL_DATABASE}");
+        postgresql.put("connection-url", "jdbc:postgresql://${org.jboss.eap.datasources.postgresql.host,env.POSTGRESQL_SERVICE_HOST,env.POSTGRESQL_HOST}:${org.jboss.eap.datasources.postgresql.port,env.POSTGRESQL_SERVICE_PORT,env.POSTGRESQL_PORT}/${org.jboss.eap.datasources.postgresql.database,env.POSTGRESQL_DATABASE}");
         postgresql.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter");
         postgresql.put("jndi-name", "java:jboss/datasources/PostgreSQLDS");
         postgresql.put("password", "${org.jboss.eap.datasources.postgresql.password,env.POSTGRESQL_PASSWORD}");
@@ -287,9 +287,9 @@ public class SimpleTestCase {
         for (String datasource : DATASOURCES_WITH_HPD) {
             String db = DS_TO_SYSTEM_PROPERTY.get(datasource);
             String prefix = CONNECTION_URL_PREFIX.get(datasource);
-            String host = "org.jboss.eap.datasources." + db + ".service.host";
+            String host = "org.jboss.eap.datasources." + db + ".host";
             String hostValue = "foo";
-            String port = "org.jboss.eap.datasources." + db + ".service.port";
+            String port = "org.jboss.eap.datasources." + db + ".port";
             String portValue = "999";
             String database = "org.jboss.eap.datasources." + db + ".database";
             String databaseValue = "myDB";
