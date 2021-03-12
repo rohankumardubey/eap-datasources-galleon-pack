@@ -84,6 +84,7 @@
                                 <layer>mariadb-datasource</layer>
                                 <layer>oracle-datasource</layer>
                                 <layer>postgresql-datasource</layer>
+                                <layer>mssqlserver-datasource</layer>
                             </layers>
                         </config>
                     </configurations>
@@ -165,6 +166,23 @@
                                         <POSTGRESQL_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</POSTGRESQL_TX_ISOLATION>
                                         <POSTGRESQL_FLUSH_STRATEGY>IdleConnections</POSTGRESQL_FLUSH_STRATEGY>
                                         
+                                        <MSSQLSERVER_ENABLED>false</MSSQLSERVER_ENABLED>
+                                        <MSSQLSERVER_EXCEPTION_SORTER>envfoo</MSSQLSERVER_EXCEPTION_SORTER>
+                                        <MSSQLSERVER_JNDI>envbar</MSSQLSERVER_JNDI>
+                                        <MSSQLSERVER_JTA>false</MSSQLSERVER_JTA>
+                                        <MSSQLSERVER_MAX_POOL_SIZE>8888</MSSQLSERVER_MAX_POOL_SIZE>
+                                        <MSSQLSERVER_MIN_POOL_SIZE>77</MSSQLSERVER_MIN_POOL_SIZE>
+                                        <MSSQLSERVER_URL>envfoourl</MSSQLSERVER_URL>
+                                        <MSSQLSERVER_USER>envfoouser</MSSQLSERVER_USER>
+                                        <MSSQLSERVER_PASSWORD>envfoopassword</MSSQLSERVER_PASSWORD>
+                                        <MSSQLSERVER_VALIDATE_ON_MATCH>false</MSSQLSERVER_VALIDATE_ON_MATCH>
+                                        <MSSQLSERVER_BACKGROUND_VALIDATION>true</MSSQLSERVER_BACKGROUND_VALIDATION>
+                                        <MSSQLSERVER_BACKGROUND_VALIDATION_MILLIS>7</MSSQLSERVER_BACKGROUND_VALIDATION_MILLIS>
+                                        <MSSQLSERVER_STALE_CONNECTION_CHECKER>envfoostalechecker</MSSQLSERVER_STALE_CONNECTION_CHECKER>
+                                        <MSSQLSERVER_CONNECTION_CHECKER>envfoochecker</MSSQLSERVER_CONNECTION_CHECKER>
+                                        <MSSQLSERVER_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</MSSQLSERVER_TX_ISOLATION>
+                                        <MSSQLSERVER_FLUSH_STRATEGY>IdleConnections</MSSQLSERVER_FLUSH_STRATEGY>
+                                        
                                     </environmentVariables>
                                 </configuration>
                              </execution>
@@ -186,6 +204,11 @@
                                         <POSTGRESQL_PORT>envfooport</POSTGRESQL_PORT>
                                         <POSTGRESQL_DATABASE>envbardatabase</POSTGRESQL_DATABASE>
                                         <POSTGRESQL_DATASOURCE>envbardatasource</POSTGRESQL_DATASOURCE>
+                                        
+                                        <MSSQLSERVER_HOST>envfoohost</MSSQLSERVER_HOST>
+                                        <MSSQLSERVER_PORT>envfooport</MSSQLSERVER_PORT>
+                                        <MSSQLSERVER_DATABASE>envbardatabase</MSSQLSERVER_DATABASE>
+                                        <MSSQLSERVER_DATASOURCE>envbardatasource</MSSQLSERVER_DATASOURCE>
                                         
                                         <ORACLE_DATASOURCE>envbardatasource</ORACLE_DATASOURCE>
                                     </environmentVariables>
@@ -209,6 +232,11 @@
                                         <POSTGRESQL_SERVICE_PORT>envfooport</POSTGRESQL_SERVICE_PORT>
                                         <POSTGRESQL_DATABASE>envbardatabase</POSTGRESQL_DATABASE>
                                         <POSTGRESQL_DATASOURCE>envbardatasource</POSTGRESQL_DATASOURCE>
+                                        
+                                        <MSSQLSERVER_SERVICE_HOST>envfoohost</MSSQLSERVER_SERVICE_HOST>
+                                        <MSSQLSERVER_SERVICE_PORT>envfooport</MSSQLSERVER_SERVICE_PORT>
+                                        <MSSQLSERVER_DATABASE>envbardatabase</MSSQLSERVER_DATABASE>
+                                        <MSSQLSERVER_DATASOURCE>envbardatasource</MSSQLSERVER_DATASOURCE>
                                         
                                         <ORACLE_DATASOURCE>envbardatasource</ORACLE_DATASOURCE>
                                     </environmentVariables>

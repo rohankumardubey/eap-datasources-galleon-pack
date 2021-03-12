@@ -42,6 +42,7 @@ public class SimpleTestCase {
     private static final String MARIADB_PREFIX = "MARIADB";
     private static final String ORACLE_PREFIX = "ORACLE";
     private static final String POSTGRESQL_PREFIX = "POSTGRESQL";
+    private static final String MSSQLSERVER_PREFIX = "MSSQLSERVER";
 
     private static final Map<String, String> ENV_VARIABLES_PREFIXES = new HashMap<>();
     private static final Map<String, String> DS_TO_PREFIX = new HashMap<>();
@@ -52,32 +53,47 @@ public class SimpleTestCase {
     private static final String MARIADB_DS = "MariaDBDS";
     private static final String ORACLE_DS = "OracleDS";
     private static final String POSTGRESQL_DS = "PostgreSQLDS";
-
+    private static final String MSSQLSERVER_DS = "MSSQLServerDS";
+    
+    private static final String MARIADB_DRIVER = "mariadb";
+    private static final String ORACLE_DRIVER = "oracle";
+    private static final String POSTGRESQL_DRIVER = "postgresql";
+    private static final String MSSQLSERVER_DRIVER = "mssqlserver-jre8";
+    
     private static final String PLACE_HOLDER = "XXX";
 
-    private static final String[] DATASOURCES = {MARIADB_DS, ORACLE_DS, POSTGRESQL_DS};
+    private static final String[] DATASOURCES = {MARIADB_DS, ORACLE_DS, POSTGRESQL_DS,MSSQLSERVER_DS};
     // These databases have host,port,database properties for connection-url
-    private static final String[] DATASOURCES_WITH_HPD = {MARIADB_DS, POSTGRESQL_DS};
+    private static final String[] DATASOURCES_WITH_HPD = {MARIADB_DS, POSTGRESQL_DS,MSSQLSERVER_DS};
 
-    private static final String[] DRIVERS = {"mariadb", "oracle", "postgresql"};
+    private static final String[] DRIVERS = {MARIADB_DRIVER, ORACLE_DRIVER, POSTGRESQL_DRIVER, MSSQLSERVER_DRIVER};
     private static final String DATASOURCES_ADDRESS = "/subsystem=datasources/";
 
     private static final Map<String, Map<String, String>> SPECIFIC_DEFAULT_VALUES = new HashMap<>();
     private static final Map<String, String> COMMON_DEFAULT_VALUES = new HashMap<>();
 
     private static final Map<String, String> SYSTEM_PROPERTIES_VALUES = new HashMap<>();
+    
     private static final Map<String, String> DS_TO_SYSTEM_PROPERTY = new HashMap<>();
 
     private static final Map<String, String> CONNECTION_URL_PREFIX = new HashMap<>();
+    
+    private static final Map<String, String> CONNECTION_URL_DB = new HashMap<>();
 
     static {
 
         DS_TO_SYSTEM_PROPERTY.put(MARIADB_DS, "mariadb");
         DS_TO_SYSTEM_PROPERTY.put(ORACLE_DS, "oracle");
         DS_TO_SYSTEM_PROPERTY.put(POSTGRESQL_DS, "postgresql");
+        DS_TO_SYSTEM_PROPERTY.put(MSSQLSERVER_DS, "mssqlserver");
 
         CONNECTION_URL_PREFIX.put(MARIADB_DS, "jdbc:mariadb://");
         CONNECTION_URL_PREFIX.put(POSTGRESQL_DS, "jdbc:postgresql://");
+        CONNECTION_URL_PREFIX.put(MSSQLSERVER_DS, "jdbc:sqlserver://");
+        
+        CONNECTION_URL_DB.put(MARIADB_DS, "/");
+        CONNECTION_URL_DB.put(POSTGRESQL_DS, "/");
+        CONNECTION_URL_DB.put(MSSQLSERVER_DS, ";DatabaseName=");
 
         COMMON_DEFAULT_VALUES.put("background-validation", "false");
         COMMON_DEFAULT_VALUES.put("background-validation-millis", "10000");
@@ -98,6 +114,7 @@ public class SimpleTestCase {
         mariadb.put("jndi-name", "java:jboss/datasources/MariaDBDS");
         mariadb.put("password", "${org.jboss.eap.datasources.mariadb.password,env.MARIADB_PASSWORD}");
         mariadb.put("user-name", "${org.jboss.eap.datasources.mariadb.user-name,env.MARIADB_USER}");
+        mariadb.put("driver-name", MARIADB_DRIVER);
 
         Map<String, String> oracle = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(ORACLE_DS, oracle);
@@ -105,6 +122,7 @@ public class SimpleTestCase {
         oracle.put("jndi-name", "java:jboss/datasources/OracleDS");
         oracle.put("password", "${org.jboss.eap.datasources.oracle.password,env.ORACLE_PASSWORD}");
         oracle.put("user-name", "${org.jboss.eap.datasources.oracle.user-name,env.ORACLE_USER}");
+        oracle.put("driver-name", ORACLE_DRIVER);
 
         Map<String, String> postgresql = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(POSTGRESQL_DS, postgresql);
@@ -112,6 +130,15 @@ public class SimpleTestCase {
         postgresql.put("jndi-name", "java:jboss/datasources/PostgreSQLDS");
         postgresql.put("password", "${org.jboss.eap.datasources.postgresql.password,env.POSTGRESQL_PASSWORD}");
         postgresql.put("user-name", "${org.jboss.eap.datasources.postgresql.user-name,env.POSTGRESQL_USER}");
+        postgresql.put("driver-name", POSTGRESQL_DRIVER);
+
+        Map<String, String> mssqlserver = new HashMap<>();
+        SPECIFIC_DEFAULT_VALUES.put(MSSQLSERVER_DS, mssqlserver);
+        mssqlserver.put("connection-url", "jdbc:sqlserver://${org.jboss.eap.datasources.mssqlserver.host,env.MSSQLSERVER_SERVICE_HOST,env.MSSQLSERVER_HOST}:${org.jboss.eap.datasources.mssqlserver.port,env.MSSQLSERVER_SERVICE_PORT,env.MSSQLSERVER_PORT};DatabaseName=${org.jboss.eap.datasources.mssqlserver.database,env.MSSQLSERVER_DATABASE}");
+        mssqlserver.put("jndi-name", "java:jboss/datasources/MSSQLServerDS");
+        mssqlserver.put("password", "${org.jboss.eap.datasources.mssqlserver.password,env.MSSQLSERVER_PASSWORD}");
+        mssqlserver.put("user-name", "${org.jboss.eap.datasources.mssqlserver.user-name,env.MSSQLSERVER_USER}");
+        mssqlserver.put("driver-name", MSSQLSERVER_DRIVER);
 
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".enabled", "false");
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".exception-sorter-class-name", "foo");
@@ -135,10 +162,12 @@ public class SimpleTestCase {
         ENV_VARIABLES_PREFIXES.put(MARIADB_PREFIX, MARIADB_DS);
         ENV_VARIABLES_PREFIXES.put(ORACLE_PREFIX, ORACLE_DS);
         ENV_VARIABLES_PREFIXES.put(POSTGRESQL_PREFIX, POSTGRESQL_DS);
+        ENV_VARIABLES_PREFIXES.put(MSSQLSERVER_PREFIX, MSSQLSERVER_DS);
 
         DS_TO_PREFIX.put(MARIADB_DS, MARIADB_PREFIX);
         DS_TO_PREFIX.put(ORACLE_DS, ORACLE_PREFIX);
         DS_TO_PREFIX.put(POSTGRESQL_DS, POSTGRESQL_PREFIX);
+        DS_TO_PREFIX.put(MSSQLSERVER_DS, MSSQLSERVER_PREFIX);
 
         ENV_TO_ATTRIBUTE.put("_ENABLED", "enabled");
         ENV_TO_ATTRIBUTE.put("_EXCEPTION_SORTER", "exception-sorter-class-name");
@@ -156,6 +185,7 @@ public class SimpleTestCase {
         ENV_TO_ATTRIBUTE.put("_CONNECTION_CHECKER", "valid-connection-checker-class-name");
         ENV_TO_ATTRIBUTE.put("_TX_ISOLATION", "transaction-isolation");
         ENV_TO_ATTRIBUTE.put("_FLUSH_STRATEGY", "flush-strategy");
+        ENV_TO_ATTRIBUTE.put("_DRIVER", "driver-name");
 
     }
 
@@ -194,14 +224,13 @@ public class SimpleTestCase {
             portValue = portValue == null ? System.getenv(prefix + "_SERVICE_PORT") : portValue;
             String databaseValue = System.getenv(prefix + "_DATABASE");
             String attribute = "connection-url";
-            String expectedValue = connectionPrefix + hostValue + ":" + portValue + "/" + databaseValue;
+            String dbSep = CONNECTION_URL_DB.get(datasource);
+            String expectedValue = connectionPrefix + hostValue + ":" + portValue + dbSep + databaseValue;
             ModelNode resource = check("data-source=" + datasource);
             assertEquals(datasource + ":" + attribute, expectedValue, resource.get(attribute).asString());
         }
         // System properties take precedence
-        for (String datasource : DATASOURCES) {
-            checkWithSystemProperties(datasource);
-        }
+        testSystemProperties();
     }
 
     private Map<String, Map<String, String>> getValues() {
@@ -243,9 +272,7 @@ public class SimpleTestCase {
             }
         }
         // System properties take precedence
-        for (String datasource : DATASOURCES) {
-            checkWithSystemProperties(datasource);
-        }
+        testSystemProperties();
     }
 
     private void testNoEnv() throws IOException {
@@ -260,11 +287,15 @@ public class SimpleTestCase {
         testWithSystemProperties();
     }
 
+    private void testSystemProperties() throws IOException {
+        for (String datasource : DATASOURCES) {
+            checkWithSystemProperties(datasource, SYSTEM_PROPERTIES_VALUES);
+        }
+    }
+
     private void testWithSystemProperties() throws IOException {
         // Set System properties and check
-        for (String datasource : DATASOURCES) {
-            checkWithSystemProperties(datasource);
-        }
+        testSystemProperties();
 
         // Special cases for jndi-name that cascades onto 2 system properties
         for (String datasource : DATASOURCES) {
@@ -293,7 +324,8 @@ public class SimpleTestCase {
             addProperty(host, hostValue);
             addProperty(port, portValue);
             addProperty(database, databaseValue);
-            String expectedValue = prefix + hostValue + ":" + portValue + "/" + databaseValue;
+            String dbSep = CONNECTION_URL_DB.get(datasource);
+            String expectedValue = prefix + hostValue + ":" + portValue + dbSep + databaseValue;
             ModelNode resource = check("data-source=" + datasource);
             assertEquals(datasource + ":" + attribute, expectedValue, resource.get(attribute).asString());
 
@@ -303,11 +335,11 @@ public class SimpleTestCase {
         }
     }
 
-    private void checkWithSystemProperties(String ds) throws IOException {
+    private void checkWithSystemProperties(String ds, Map<String, String> values) throws IOException {
         String db = DS_TO_SYSTEM_PROPERTY.get(ds);
         Map<String, String> newExpectedValues = new HashMap<>();
         Set<String> properties = new HashSet<>();
-        for (Entry<String, String> entry : SYSTEM_PROPERTIES_VALUES.entrySet()) {
+        for (Entry<String, String> entry : values.entrySet()) {
             String key = entry.getKey();
             String attribute = key.substring(key.lastIndexOf(".") + 1, key.length());
             key = key.replace(PLACE_HOLDER, db);
