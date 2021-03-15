@@ -91,6 +91,7 @@ public class SimpleTestCase {
         COMMON_DEFAULT_VALUES.put("stale-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker");
         COMMON_DEFAULT_VALUES.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter");
         COMMON_DEFAULT_VALUES.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker");
+        COMMON_DEFAULT_VALUES.put("flush-strategy","FailingConnectionOnly");
         Map<String, String> mariadb = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(MARIADB_DS, mariadb);
         mariadb.put("connection-url", "jdbc:mariadb://${org.jboss.eap.datasources.mariadb.host,env.MARIADB_SERVICE_HOST,env.MARIADB_HOST}:${org.jboss.eap.datasources.mariadb.port,env.MARIADB_SERVICE_PORT,env.MARIADB_PORT}/${org.jboss.eap.datasources.mariadb.database,env.MARIADB_DATABASE}");
@@ -129,6 +130,7 @@ public class SimpleTestCase {
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".stale-connection-checker-class-name", "foostale");
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".valid-connection-checker-class-name", "foochecker");
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".transaction-isolation", "TRANSACTION_SERIALIZABLE");
+        SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".flush-strategy", "IdleConnections");
 
         ENV_VARIABLES_PREFIXES.put(MARIADB_PREFIX, MARIADB_DS);
         ENV_VARIABLES_PREFIXES.put(ORACLE_PREFIX, ORACLE_DS);
@@ -153,6 +155,7 @@ public class SimpleTestCase {
         ENV_TO_ATTRIBUTE.put("_STALE_CONNECTION_CHECKER", "stale-connection-checker-class-name");
         ENV_TO_ATTRIBUTE.put("_CONNECTION_CHECKER", "valid-connection-checker-class-name");
         ENV_TO_ATTRIBUTE.put("_TX_ISOLATION", "transaction-isolation");
+        ENV_TO_ATTRIBUTE.put("_FLUSH_STRATEGY", "flush-strategy");
 
     }
 
