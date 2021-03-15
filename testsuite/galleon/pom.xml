@@ -129,6 +129,7 @@
                                         <MARIADB_STALE_CONNECTION_CHECKER>envfoostalechecker</MARIADB_STALE_CONNECTION_CHECKER>
                                         <MARIADB_CONNECTION_CHECKER>envfoochecker</MARIADB_CONNECTION_CHECKER>
                                         <MARIADB_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</MARIADB_TX_ISOLATION>
+                                        <MARIADB_FLUSH_STRATEGY>IdleConnections</MARIADB_FLUSH_STRATEGY>
                                         
                                         <ORACLE_ENABLED>false</ORACLE_ENABLED>
                                         <ORACLE_EXCEPTION_SORTER>envfoo</ORACLE_EXCEPTION_SORTER>
@@ -145,6 +146,7 @@
                                         <ORACLE_STALE_CONNECTION_CHECKER>envfoostalechecker</ORACLE_STALE_CONNECTION_CHECKER>
                                         <ORACLE_CONNECTION_CHECKER>envfoochecker</ORACLE_CONNECTION_CHECKER>
                                         <ORACLE_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</ORACLE_TX_ISOLATION>
+                                        <ORACLE_FLUSH_STRATEGY>IdleConnections</ORACLE_FLUSH_STRATEGY>
                                         
                                         <POSTGRESQL_ENABLED>false</POSTGRESQL_ENABLED>
                                         <POSTGRESQL_EXCEPTION_SORTER>envfoo</POSTGRESQL_EXCEPTION_SORTER>
@@ -161,6 +163,7 @@
                                         <POSTGRESQL_STALE_CONNECTION_CHECKER>envfoostalechecker</POSTGRESQL_STALE_CONNECTION_CHECKER>
                                         <POSTGRESQL_CONNECTION_CHECKER>envfoochecker</POSTGRESQL_CONNECTION_CHECKER>
                                         <POSTGRESQL_TX_ISOLATION>TRANSACTION_READ_UNCOMMITTED</POSTGRESQL_TX_ISOLATION>
+                                        <POSTGRESQL_FLUSH_STRATEGY>IdleConnections</POSTGRESQL_FLUSH_STRATEGY>
                                         
                                     </environmentVariables>
                                 </configuration>
