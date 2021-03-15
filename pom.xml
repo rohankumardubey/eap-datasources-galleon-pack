@@ -47,7 +47,7 @@
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
         <version.org.mariadb>2.7.2</version.org.mariadb>
         <version.org.postgresql.postgresql>42.2.19</version.org.postgresql.postgresql>
-        <version.junit>4.13.1</version.junit>
+        <version.junit>4.13.2</version.junit>
         <jbossas.repo.scm.connection>git@github.com:jbossas/eap-datasources-galleon-pack.git</jbossas.repo.scm.connection>
         <jbossas.repo.scm.url>https://github.com/jbossas/eap-datasources-galleon-pack</jbossas.repo.scm.url>   
     </properties>
