@@ -9,7 +9,7 @@
         <!-- we can't use expression for pool-name (data-source name) hard coding should be fine, the important thing is JNDI -->
         <param name="data-source" value="MariaDBDS"/>
         <param name="enabled" value="${org.jboss.eap.datasources.mariadb.enabled,env.MARIADB_ENABLED:true}"/>
-        <param name="exception-sorter-class-name" value="${org.jboss.eap.datasources.mariadb.exception-sorter-class-name,env.MARIADB_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter}"/>
+        <param name="exception-sorter-class-name" value="${org.jboss.eap.datasources.mariadb.exception-sorter-class-name,env.MARIADB_EXCEPTION_SORTER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter}"/>
         <param name="use-java-context" value="true"/>
         <param name="jndi-name" value="${org.jboss.eap.datasources.mariadb.jndi-name,env.MARIADB_JNDI:java:jboss/datasources/${org.jboss.eap.datasources.mariadb.datasource,env.MARIADB_DATASOURCE:MariaDBDS}}"/>
         <param name="jta" value="${org.jboss.eap.datasources.mariadb.jta,env.MARIADB_JTA:true}"/>
@@ -25,8 +25,8 @@
         <param name="background-validation-millis" value="${org.jboss.eap.datasources.mariadb.background-validation-millis,env.MARIADB_BACKGROUND_VALIDATION_MILLIS:10000}"/>
         <param name="flush-strategy" value="IdleConnections"/>
         <param name="statistics-enabled" value="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}" />
-        <param name="stale-connection-checker-class-name" value="${org.jboss.eap.datasources.mariadb.stale-connection-checker-class-name,env.MARIADB_STALE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLStaleConnectionChecker}" />
-        <param name="valid-connection-checker-class-name" value="${org.jboss.eap.datasources.mariadb.valid-connection-checker-class-name,env.MARIADB_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker}"/>
+        <param name="stale-connection-checker-class-name" value="${org.jboss.eap.datasources.mariadb.stale-connection-checker-class-name,env.MARIADB_STALE_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker}" />
+        <param name="valid-connection-checker-class-name" value="${org.jboss.eap.datasources.mariadb.valid-connection-checker-class-name,env.MARIADB_CONNECTION_CHECKER:org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker}"/>
         <param name="transaction-isolation" value="${org.jboss.eap.datasources.mariadb.transaction-isolation,env.MARIADB_TX_ISOLATION:TRANSACTION_READ_COMMITTED}"/>
     </feature>
 </layer-spec>

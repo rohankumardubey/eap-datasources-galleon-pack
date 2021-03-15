@@ -88,36 +88,29 @@ public class SimpleTestCase {
         COMMON_DEFAULT_VALUES.put("statistics-enabled", "false");
         COMMON_DEFAULT_VALUES.put("transaction-isolation", "TRANSACTION_READ_COMMITTED");
         COMMON_DEFAULT_VALUES.put("validate-on-match", "true");
-
+        COMMON_DEFAULT_VALUES.put("stale-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker");
+        COMMON_DEFAULT_VALUES.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter");
+        COMMON_DEFAULT_VALUES.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker");
         Map<String, String> mariadb = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(MARIADB_DS, mariadb);
         mariadb.put("connection-url", "jdbc:mariadb://${org.jboss.eap.datasources.mariadb.host,env.MARIADB_SERVICE_HOST,env.MARIADB_HOST}:${org.jboss.eap.datasources.mariadb.port,env.MARIADB_SERVICE_PORT,env.MARIADB_PORT}/${org.jboss.eap.datasources.mariadb.database,env.MARIADB_DATABASE}");
-        mariadb.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter");
         mariadb.put("jndi-name", "java:jboss/datasources/MariaDBDS");
         mariadb.put("password", "${org.jboss.eap.datasources.mariadb.password,env.MARIADB_PASSWORD}");
-        mariadb.put("stale-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLStaleConnectionChecker");
         mariadb.put("user-name", "${org.jboss.eap.datasources.mariadb.user-name,env.MARIADB_USER}");
-        mariadb.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker");
 
         Map<String, String> oracle = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(ORACLE_DS, oracle);
         oracle.put("connection-url", "${org.jboss.eap.datasources.oracle.connection-url,env.ORACLE_URL}");
-        oracle.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter");
         oracle.put("jndi-name", "java:jboss/datasources/OracleDS");
         oracle.put("password", "${org.jboss.eap.datasources.oracle.password,env.ORACLE_PASSWORD}");
-        oracle.put("stale-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker");
         oracle.put("user-name", "${org.jboss.eap.datasources.oracle.user-name,env.ORACLE_USER}");
-        oracle.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker");
 
         Map<String, String> postgresql = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(POSTGRESQL_DS, postgresql);
         postgresql.put("connection-url", "jdbc:postgresql://${org.jboss.eap.datasources.postgresql.host,env.POSTGRESQL_SERVICE_HOST,env.POSTGRESQL_HOST}:${org.jboss.eap.datasources.postgresql.port,env.POSTGRESQL_SERVICE_PORT,env.POSTGRESQL_PORT}/${org.jboss.eap.datasources.postgresql.database,env.POSTGRESQL_DATABASE}");
-        postgresql.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter");
         postgresql.put("jndi-name", "java:jboss/datasources/PostgreSQLDS");
         postgresql.put("password", "${org.jboss.eap.datasources.postgresql.password,env.POSTGRESQL_PASSWORD}");
-        postgresql.put("stale-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.postgres.StaleConnectionChecker");
         postgresql.put("user-name", "${org.jboss.eap.datasources.postgresql.user-name,env.POSTGRESQL_USER}");
-        postgresql.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker");
 
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".enabled", "false");
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".exception-sorter-class-name", "foo");
