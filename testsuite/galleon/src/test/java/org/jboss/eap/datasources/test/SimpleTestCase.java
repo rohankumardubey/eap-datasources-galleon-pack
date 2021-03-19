@@ -39,7 +39,6 @@ public class SimpleTestCase {
     private static final String EAP_WITH_ALL_ENV_TEST = "EAP_WITH_ALL_ENV_TEST";
     private static final String EAP_WITH_ENV_TEST = "EAP_WITH_ENV_TEST";
 
-    private static final String MARIADB_PREFIX = "MARIADB";
     private static final String ORACLE_PREFIX = "ORACLE";
     private static final String POSTGRESQL_PREFIX = "POSTGRESQL";
     private static final String MSSQLSERVER_PREFIX = "MSSQLSERVER";
@@ -50,23 +49,21 @@ public class SimpleTestCase {
 
     @Inject
     private ManagementClient managementClient;
-    private static final String MARIADB_DS = "MariaDBDS";
     private static final String ORACLE_DS = "OracleDS";
     private static final String POSTGRESQL_DS = "PostgreSQLDS";
     private static final String MSSQLSERVER_DS = "MSSQLServerDS";
     
-    private static final String MARIADB_DRIVER = "mariadb";
     private static final String ORACLE_DRIVER = "oracle";
     private static final String POSTGRESQL_DRIVER = "postgresql";
     private static final String MSSQLSERVER_DRIVER = "mssqlserver-jre8";
     
     private static final String PLACE_HOLDER = "XXX";
 
-    private static final String[] DATASOURCES = {MARIADB_DS, ORACLE_DS, POSTGRESQL_DS,MSSQLSERVER_DS};
+    private static final String[] DATASOURCES = {ORACLE_DS, POSTGRESQL_DS,MSSQLSERVER_DS};
     // These databases have host,port,database properties for connection-url
-    private static final String[] DATASOURCES_WITH_HPD = {MARIADB_DS, POSTGRESQL_DS,MSSQLSERVER_DS};
+    private static final String[] DATASOURCES_WITH_HPD = {POSTGRESQL_DS,MSSQLSERVER_DS};
 
-    private static final String[] DRIVERS = {MARIADB_DRIVER, ORACLE_DRIVER, POSTGRESQL_DRIVER, MSSQLSERVER_DRIVER};
+    private static final String[] DRIVERS = {ORACLE_DRIVER, POSTGRESQL_DRIVER, MSSQLSERVER_DRIVER};
     private static final String DATASOURCES_ADDRESS = "/subsystem=datasources/";
 
     private static final Map<String, Map<String, String>> SPECIFIC_DEFAULT_VALUES = new HashMap<>();
@@ -82,16 +79,13 @@ public class SimpleTestCase {
 
     static {
 
-        DS_TO_SYSTEM_PROPERTY.put(MARIADB_DS, "mariadb");
         DS_TO_SYSTEM_PROPERTY.put(ORACLE_DS, "oracle");
         DS_TO_SYSTEM_PROPERTY.put(POSTGRESQL_DS, "postgresql");
         DS_TO_SYSTEM_PROPERTY.put(MSSQLSERVER_DS, "mssqlserver");
 
-        CONNECTION_URL_PREFIX.put(MARIADB_DS, "jdbc:mariadb://");
         CONNECTION_URL_PREFIX.put(POSTGRESQL_DS, "jdbc:postgresql://");
         CONNECTION_URL_PREFIX.put(MSSQLSERVER_DS, "jdbc:sqlserver://");
         
-        CONNECTION_URL_DB.put(MARIADB_DS, "/");
         CONNECTION_URL_DB.put(POSTGRESQL_DS, "/");
         CONNECTION_URL_DB.put(MSSQLSERVER_DS, ";DatabaseName=");
 
@@ -108,13 +102,6 @@ public class SimpleTestCase {
         COMMON_DEFAULT_VALUES.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter");
         COMMON_DEFAULT_VALUES.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker");
         COMMON_DEFAULT_VALUES.put("flush-strategy","FailingConnectionOnly");
-        Map<String, String> mariadb = new HashMap<>();
-        SPECIFIC_DEFAULT_VALUES.put(MARIADB_DS, mariadb);
-        mariadb.put("connection-url", "jdbc:mariadb://${org.jboss.eap.datasources.mariadb.host,env.MARIADB_SERVICE_HOST,env.MARIADB_HOST}:${org.jboss.eap.datasources.mariadb.port,env.MARIADB_SERVICE_PORT,env.MARIADB_PORT}/${org.jboss.eap.datasources.mariadb.database,env.MARIADB_DATABASE}");
-        mariadb.put("jndi-name", "java:jboss/datasources/MariaDBDS");
-        mariadb.put("password", "${org.jboss.eap.datasources.mariadb.password,env.MARIADB_PASSWORD}");
-        mariadb.put("user-name", "${org.jboss.eap.datasources.mariadb.user-name,env.MARIADB_USER}");
-        mariadb.put("driver-name", MARIADB_DRIVER);
 
         Map<String, String> oracle = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(ORACLE_DS, oracle);
@@ -159,12 +146,10 @@ public class SimpleTestCase {
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".transaction-isolation", "TRANSACTION_SERIALIZABLE");
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".flush-strategy", "IdleConnections");
 
-        ENV_VARIABLES_PREFIXES.put(MARIADB_PREFIX, MARIADB_DS);
         ENV_VARIABLES_PREFIXES.put(ORACLE_PREFIX, ORACLE_DS);
         ENV_VARIABLES_PREFIXES.put(POSTGRESQL_PREFIX, POSTGRESQL_DS);
         ENV_VARIABLES_PREFIXES.put(MSSQLSERVER_PREFIX, MSSQLSERVER_DS);
 
-        DS_TO_PREFIX.put(MARIADB_DS, MARIADB_PREFIX);
         DS_TO_PREFIX.put(ORACLE_DS, ORACLE_PREFIX);
         DS_TO_PREFIX.put(POSTGRESQL_DS, POSTGRESQL_PREFIX);
         DS_TO_PREFIX.put(MSSQLSERVER_DS, MSSQLSERVER_PREFIX);
