@@ -42,7 +42,7 @@
         <version.org.jboss.eap>7.4.0.Beta-redhat-00001</version.org.jboss.eap>
         <version.org.wildfly.galleon-plugins>5.1.1.Final</version.org.wildfly.galleon-plugins>
         <version.org.wildfly.core>14.0.1.Final-redhat-00001</version.org.wildfly.core>
-        <version.org.jboss.jboss-dmr>1.5.1.Final</version.org.jboss.jboss-dmr>
+        <version.org.jboss.jboss-dmr>1.5.1.Final-redhat-00001</version.org.jboss.jboss-dmr>
         <version.org.jboss.galleon>4.2.7.Final</version.org.jboss.galleon>
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
         <version.org.mariadb>2.7.2</version.org.mariadb>
