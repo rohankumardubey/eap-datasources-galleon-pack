@@ -47,6 +47,7 @@
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
         <version.org.mariadb>2.7.2</version.org.mariadb>
         <version.org.postgresql.postgresql>42.2.19</version.org.postgresql.postgresql>
+        <version.com.microsoft.sqlserver.jre8>7.2.2.jre8</version.com.microsoft.sqlserver.jre8>
         <version.junit>4.13.2</version.junit>
         <jbossas.repo.scm.connection>git@github.com:jbossas/eap-datasources-galleon-pack.git</jbossas.repo.scm.connection>
         <jbossas.repo.scm.url>https://github.com/jbossas/eap-datasources-galleon-pack</jbossas.repo.scm.url>   
@@ -74,7 +75,11 @@
                 <artifactId>postgresql</artifactId>
                 <version>${version.org.postgresql.postgresql}</version>
             </dependency>
-            
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>${version.com.microsoft.sqlserver.jre8}</version>
+            </dependency>
             <!-- tests -->
             <dependency>
                 <groupId>org.wildfly.core</groupId>
