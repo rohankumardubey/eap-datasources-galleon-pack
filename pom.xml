@@ -39,7 +39,7 @@
         </license>
     </licenses>
     <properties>
-        <version.com.microsoft.sqlserver.jre8>7.2.2.jre8</version.com.microsoft.sqlserver.jre8>
+        <version.com.microsoft.sqlserver.jre8>9.2.1.jre8</version.com.microsoft.sqlserver.jre8>
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
         <version.junit>4.13.2</version.junit>
         <version.org.jboss.eap>7.4.0.Beta-redhat-00001</version.org.jboss.eap>
