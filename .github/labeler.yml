@@ -10,6 +10,7 @@ oracle:
   - "**/oracle-*/**/*"
 postgresql:
   - "**/postgresql/**/*" 
-  - "**/postgresql-*/**/*" 
-
+  - "**/postgresql-*/**/*"
+documentation:
+  - doc/**/*
  
