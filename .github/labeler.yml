@@ -3,7 +3,7 @@ repo:
 test:
   - testsuite/**/*
 microsoft:
-  - "**/mssqlserver-*/**/*"
+  - "**/mssqlserver*/**/*"
   - "**/microsoft/**/*"
 oracle:
   - "**/oracle/**/*"

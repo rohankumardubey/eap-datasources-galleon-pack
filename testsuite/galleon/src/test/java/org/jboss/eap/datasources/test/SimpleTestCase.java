@@ -113,7 +113,7 @@ public class SimpleTestCase {
 
         Map<String, String> postgresql = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(POSTGRESQL_DS, postgresql);
-        postgresql.put("connection-url", "jdbc:postgresql://${org.jboss.eap.datasources.postgresql.host,env.POSTGRESQL_SERVICE_HOST,env.POSTGRESQL_HOST}:${org.jboss.eap.datasources.postgresql.port,env.POSTGRESQL_SERVICE_PORT,env.POSTGRESQL_PORT}/${org.jboss.eap.datasources.postgresql.database,env.POSTGRESQL_DATABASE}");
+        postgresql.put("connection-url", "jdbc:postgresql://localhost:5432/${org.jboss.eap.datasources.postgresql.database,env.POSTGRESQL_DATABASE}");
         postgresql.put("jndi-name", "java:jboss/datasources/PostgreSQLDS");
         postgresql.put("password", "${org.jboss.eap.datasources.postgresql.password,env.POSTGRESQL_PASSWORD}");
         postgresql.put("user-name", "${org.jboss.eap.datasources.postgresql.user-name,env.POSTGRESQL_USER}");
@@ -121,7 +121,7 @@ public class SimpleTestCase {
 
         Map<String, String> mssqlserver = new HashMap<>();
         SPECIFIC_DEFAULT_VALUES.put(MSSQLSERVER_DS, mssqlserver);
-        mssqlserver.put("connection-url", "jdbc:sqlserver://${org.jboss.eap.datasources.mssqlserver.host,env.MSSQLSERVER_SERVICE_HOST,env.MSSQLSERVER_HOST}:${org.jboss.eap.datasources.mssqlserver.port,env.MSSQLSERVER_SERVICE_PORT,env.MSSQLSERVER_PORT};DatabaseName=${org.jboss.eap.datasources.mssqlserver.database,env.MSSQLSERVER_DATABASE}");
+        mssqlserver.put("connection-url", "jdbc:sqlserver://localhost:1433;DatabaseName=${org.jboss.eap.datasources.mssqlserver.database,env.MSSQLSERVER_DATABASE}");
         mssqlserver.put("jndi-name", "java:jboss/datasources/MSSQLServerDS");
         mssqlserver.put("password", "${org.jboss.eap.datasources.mssqlserver.password,env.MSSQLSERVER_PASSWORD}");
         mssqlserver.put("user-name", "${org.jboss.eap.datasources.mssqlserver.user-name,env.MSSQLSERVER_USER}");
