@@ -39,15 +39,16 @@
         </license>
     </licenses>
     <properties>
-        <version.com.microsoft.sqlserver.jre8>9.2.1.jre8</version.com.microsoft.sqlserver.jre8>
-        <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
+        <org.jboss.eap.datasources.mssqlserver.driver.version>9.2.1.jre8</org.jboss.eap.datasources.mssqlserver.driver.version>
+        <org.jboss.eap.datasources.oracle.driver.version>19.3.0.0</org.jboss.eap.datasources.oracle.driver.version>
+        <org.jboss.eap.datasources.postgresql.driver.version>42.2.19</org.jboss.eap.datasources.postgresql.driver.version>
         <version.junit>4.13.2</version.junit>
+        <version.org.codehaus.mojo.properties-maven-plugin>1.0.0</version.org.codehaus.mojo.properties-maven-plugin>
         <version.org.jboss.eap>7.4.0.Beta-redhat-00001</version.org.jboss.eap>
         <version.org.jboss.galleon>4.2.8.Final</version.org.jboss.galleon>
         <version.org.jboss.jboss-dmr>1.5.1.Final-redhat-00001</version.org.jboss.jboss-dmr>
-        <version.org.postgresql.postgresql>42.2.19</version.org.postgresql.postgresql>
         <version.org.wildfly.core>14.0.1.Final-redhat-00001</version.org.wildfly.core>
-        <version.org.wildfly.galleon-plugins>5.1.1.Final</version.org.wildfly.galleon-plugins>
+        <version.org.wildfly.galleon-plugins>5.1.2.Final</version.org.wildfly.galleon-plugins>
         <jbossas.repo.scm.connection>git@github.com:jbossas/eap-datasources-galleon-pack.git</jbossas.repo.scm.connection>
         <jbossas.repo.scm.url>https://github.com/jbossas/eap-datasources-galleon-pack</jbossas.repo.scm.url>   
     </properties>
@@ -62,17 +63,17 @@
             <dependency>
                 <groupId>com.oracle.ojdbc</groupId>
                 <artifactId>ojdbc8</artifactId>
-                <version>${version.com.oracle.ojdbc8}</version>
+                <version>${org.jboss.eap.datasources.oracle.driver.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
-                <version>${version.org.postgresql.postgresql}</version>
+                <version>${org.jboss.eap.datasources.postgresql.driver.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.microsoft.sqlserver</groupId>
                 <artifactId>mssql-jdbc</artifactId>
-                <version>${version.com.microsoft.sqlserver.jre8}</version>
+                <version>${org.jboss.eap.datasources.mssqlserver.driver.version}</version>
             </dependency>
             <!-- tests -->
             <dependency>
@@ -109,6 +110,11 @@
                     <groupId>org.wildfly.galleon-plugins</groupId>
                     <artifactId>wildfly-galleon-maven-plugin</artifactId>
                     <version>${version.org.wildfly.galleon-plugins}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>properties-maven-plugin</artifactId>
+                    <version>${version.org.codehaus.mojo.properties-maven-plugin}</version>
                 </plugin>
             </plugins>
         </pluginManagement>

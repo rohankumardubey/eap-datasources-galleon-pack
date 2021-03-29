@@ -4,13 +4,28 @@ Galleon Layers
 * `postgresql-datasource`: Provision the `PostgreSQLDS` non xa datasource. Depends on `postgresql-driver` layer.
 * `postgresql-driver`: Provision the `postgresql` driver. This layer installs the JBoss Modules module `org.postgresql.jdbc`.
 
-Configuration
-========
+Build time configuration
+===============
+
+Configuration to provide when provisioning the Galleon feature-pack.
+
+Required configuration
+--------------------------------
+
+* `POSTGRESQL_DRIVER_VERSION`
+
+  * Description: The version of the `org.postgresql:postgresql` Maven artifact.
+  * No default value.
+  * Required: True
+  * System Property: `org.jboss.eap.datasources.postgresql.driver.version`
+
+Runtime Configuration
+==============
 
 The following set of environment variables and corresponding Java system properties can be used to configure the datasource.
 
 Required configuration
-==============
+--------------------------------
 
 * `POSTGRESQL_DATABASE`
 
