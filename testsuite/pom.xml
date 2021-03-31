@@ -30,12 +30,35 @@
     <description>Drivers and datasources for JBoss Entreprise Application Platform testsuite parent</description>
 
     <properties>
-        <testLogToFile>true</testLogToFile>
-        <node0>127.0.0.1</node0>
-        <management.address>${node0}</management.address>
         <jboss.args>--start-mode=admin-only</jboss.args>
+        <management.address>${node0}</management.address>
+        <node0>127.0.0.1</node0>
+        <org.jboss.eap.datasources.mssqlserver.driver.version>9.2.1.jre8</org.jboss.eap.datasources.mssqlserver.driver.version>
+        <org.jboss.eap.datasources.oracle.driver.version>19.3.0.0</org.jboss.eap.datasources.oracle.driver.version>
+        <org.jboss.eap.datasources.postgresql.driver.version>42.2.19</org.jboss.eap.datasources.postgresql.driver.version>
+        <testLogToFile>true</testLogToFile>
     </properties>
-    
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.oracle.ojdbc</groupId>
+                <artifactId>ojdbc8</artifactId>
+                <version>${org.jboss.eap.datasources.oracle.driver.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${org.jboss.eap.datasources.postgresql.driver.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>${org.jboss.eap.datasources.mssqlserver.driver.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <plugins>
             <plugin>
