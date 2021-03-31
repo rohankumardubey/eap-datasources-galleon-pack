@@ -1,16 +1,33 @@
 Galleon Layers
 =========
 
-* `mssqlserver-datasource`: Provision the `MSSQLServerDS` non xa datasource. Depends on `mssqlserver-jre8-driver` layer.
-* `mssqlserver-jre8-driver`: Provision the `mssqlserver-jre8` driver. This layer installs the JBoss Modules module `com.microsoft.sqlserver.jre8`.
+* `mssqlserver-datasource`: Provision the `MSSQLServerDS` non xa datasource. Depends on `mssqlserver-driver` layer.
+* `mssqlserver-driver`: Provision the `mssqlserver` driver. This layer installs the JBoss Modules module `com.microsoft.sqlserver`.
 
-Configuration
-========
+
+Build time configuration
+===============
+
+Configuration to provide when provisioning the Galleon feature-pack.
+
+Required configuration
+--------------------------------
+
+* `MSSQLSERVER_DRIVER_VERSION`
+
+  * Description: The version of the `com.microsoft.sqlserver:mssql-jdbc` Maven artifact.
+  * No default value.
+  * Required: True
+  * System Property: `org.jboss.eap.datasources.mssqlserver.driver.version`
+
+
+Runtime Configuration
+==============
 
 The following set of environment variables and corresponding Java system properties can be used to configure the datasource.
 
 Required configuration
-==============
+--------------------------------
 
 * `MSSQLSERVER_DATABASE`
 

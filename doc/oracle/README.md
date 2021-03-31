@@ -4,13 +4,28 @@ Galleon Layers
 * `oracle-datasource`: Provision the `OracleDS` non xa datasource. Depends on `oracle-driver` layer.
 * `oracle-driver`: Provision the `oracle` driver. This layer installs the JBoss Modules module `com.oracle.ojdbc`.
 
-Configuration
-========
+Build time configuration
+===============
+
+Configuration to provide when provisioning the Galleon feature-pack.
+
+Required configuration
+--------------------------------
+
+* `ORACLE_DRIVER_VERSION`
+
+  * Description: The version of the `com.oracle.ojdbc:ojdbc8` Maven artifact.
+  * No default value.
+  * Required: True
+  * System Property: `org.jboss.eap.datasources.oracle.driver.version`
+
+Runtime Configuration
+==============
 
 The following set of environment variables and corresponding Java system properties can be used to configure the datasource.
 
 Required configuration
-==============
+--------------------------------
 
 * `ORACLE_PASSWORD`
 

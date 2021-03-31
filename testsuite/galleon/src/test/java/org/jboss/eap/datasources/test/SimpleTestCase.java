@@ -55,7 +55,7 @@ public class SimpleTestCase {
     
     private static final String ORACLE_DRIVER = "oracle";
     private static final String POSTGRESQL_DRIVER = "postgresql";
-    private static final String MSSQLSERVER_DRIVER = "mssqlserver-jre8";
+    private static final String MSSQLSERVER_DRIVER = "mssqlserver";
     
     private static final String PLACE_HOLDER = "XXX";
 

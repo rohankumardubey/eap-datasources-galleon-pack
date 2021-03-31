@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.jboss.eap</groupId>
         <artifactId>eap-datasources-galleon-pack-testsuite-parent</artifactId>
-        <version>7.4.0.Beta1-SNAPSHOT</version>
+        <version>7.4.0.GA-redhat-SNAPSHOT</version>
     </parent>
     <artifactId>eap-datasources-galleon-pack-testsuite</artifactId>
     <name>Drivers and datasources for JBoss Entreprise Application Platform galleon testsuite</name>
@@ -56,9 +56,53 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- For dependabot -->
+        <dependency>
+            <groupId>com.oracle.ojdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- end for dependabot -->
     </dependencies>
     <build>                
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>set-system-properties</goal>
+                        </goals>
+                        <configuration>
+                            <properties>
+                                <property>
+                                    <name>org.jboss.eap.datasources.oracle.driver.version</name>
+                                    <value>${org.jboss.eap.datasources.oracle.driver.version}</value>
+                                </property>
+                                <property>
+                                    <name>org.jboss.eap.datasources.postgresql.driver.version</name>
+                                    <value>${org.jboss.eap.datasources.postgresql.driver.version}</value>
+                                </property>
+                                <property>
+                                    <name>org.jboss.eap.datasources.mssqlserver.driver.version</name>
+                                    <value>${org.jboss.eap.datasources.mssqlserver.driver.version}</value>
+                                </property>
+                            </properties>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.jboss.galleon</groupId>
                 <artifactId>galleon-maven-plugin</artifactId>
