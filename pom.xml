@@ -43,7 +43,7 @@
         <version.com.oracle.ojdbc8>19.3.0.0</version.com.oracle.ojdbc8>
         <version.junit>4.13.2</version.junit>
         <version.org.jboss.eap>7.4.0.Beta-redhat-00001</version.org.jboss.eap>
-        <version.org.jboss.galleon>4.2.7.Final</version.org.jboss.galleon>
+        <version.org.jboss.galleon>4.2.8.Final</version.org.jboss.galleon>
         <version.org.jboss.jboss-dmr>1.5.1.Final-redhat-00001</version.org.jboss.jboss-dmr>
         <version.org.postgresql.postgresql>42.2.19</version.org.postgresql.postgresql>
         <version.org.wildfly.core>14.0.1.Final-redhat-00001</version.org.wildfly.core>
