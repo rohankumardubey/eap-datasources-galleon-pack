@@ -119,7 +119,7 @@ Optional configuration
 
 * `ORACLE_STALE_CONNECTION_CHECKER`
 
-  * Description: Specifies a connection checker class that is used to check stale connections. Valid value: `org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker`
+  * Description: Specifies a connection checker class that is used to check stale connections. Valid values: `org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker` or `org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker`
   * Default Value: `org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker`
   * System Property: `org.jboss.eap.datasources.oracle.stale-connection-checker-class-name`
 
