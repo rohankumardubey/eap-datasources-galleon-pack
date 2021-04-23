@@ -66,7 +66,7 @@ Optional configuration
 * `ORACLE_CONNECTION_CHECKER`
 
   * Description: Specifies a connection checker class that is used to validate connections. Valid value: `org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker`
-  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker`
+  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker`
   * System Property: `org.jboss.eap.datasources.oracle.valid-connection-checker-class-name`
 
 * `ORACLE_DATASOURCE`
@@ -84,7 +84,7 @@ Optional configuration
 * `ORACLE_EXCEPTION_SORTER`
 
   * Description: Specifies the exception sorter class that is used to properly detect and clean up after fatal database connection exceptions. Valid value: `org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter`
-  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter`
+  * Default Value: `org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter`
   * System Property: `org.jboss.eap.datasources.oracle.exception-sorter-class-name`
 
 * `ORACLE_FLUSH_STRATEGY`
