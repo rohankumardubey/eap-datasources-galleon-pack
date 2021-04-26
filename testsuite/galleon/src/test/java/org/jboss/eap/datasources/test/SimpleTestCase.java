@@ -99,8 +99,6 @@ public class SimpleTestCase {
         COMMON_DEFAULT_VALUES.put("transaction-isolation", "TRANSACTION_READ_COMMITTED");
         COMMON_DEFAULT_VALUES.put("validate-on-match", "true");
         COMMON_DEFAULT_VALUES.put("stale-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullStaleConnectionChecker");
-        COMMON_DEFAULT_VALUES.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullExceptionSorter");
-        COMMON_DEFAULT_VALUES.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.novendor.NullValidConnectionChecker");
         COMMON_DEFAULT_VALUES.put("flush-strategy","FailingConnectionOnly");
 
         Map<String, String> oracle = new HashMap<>();
@@ -109,6 +107,8 @@ public class SimpleTestCase {
         oracle.put("jndi-name", "java:jboss/datasources/OracleDS");
         oracle.put("password", "${org.jboss.eap.datasources.oracle.password,env.ORACLE_PASSWORD}");
         oracle.put("user-name", "${org.jboss.eap.datasources.oracle.user-name,env.ORACLE_USER}");
+        oracle.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter");
+        oracle.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker");
         oracle.put("driver-name", ORACLE_DRIVER);
 
         Map<String, String> postgresql = new HashMap<>();
@@ -117,6 +117,8 @@ public class SimpleTestCase {
         postgresql.put("jndi-name", "java:jboss/datasources/PostgreSQLDS");
         postgresql.put("password", "${org.jboss.eap.datasources.postgresql.password,env.POSTGRESQL_PASSWORD}");
         postgresql.put("user-name", "${org.jboss.eap.datasources.postgresql.user-name,env.POSTGRESQL_USER}");
+        postgresql.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter");
+        postgresql.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker");
         postgresql.put("driver-name", POSTGRESQL_DRIVER);
 
         Map<String, String> mssqlserver = new HashMap<>();
@@ -125,6 +127,8 @@ public class SimpleTestCase {
         mssqlserver.put("jndi-name", "java:jboss/datasources/MSSQLServerDS");
         mssqlserver.put("password", "${org.jboss.eap.datasources.mssqlserver.password,env.MSSQLSERVER_PASSWORD}");
         mssqlserver.put("user-name", "${org.jboss.eap.datasources.mssqlserver.user-name,env.MSSQLSERVER_USER}");
+        mssqlserver.put("exception-sorter-class-name", "org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLExceptionSorter");
+        mssqlserver.put("valid-connection-checker-class-name", "org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker");
         mssqlserver.put("driver-name", MSSQLSERVER_DRIVER);
 
         SYSTEM_PROPERTIES_VALUES.put("org.jboss.eap.datasources." + PLACE_HOLDER + ".enabled", "false");
