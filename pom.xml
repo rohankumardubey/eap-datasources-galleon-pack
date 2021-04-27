@@ -41,7 +41,7 @@
     <properties>
         <version.junit>4.13.2</version.junit>
         <version.org.codehaus.mojo.properties-maven-plugin>1.0.0</version.org.codehaus.mojo.properties-maven-plugin>
-        <version.org.jboss.eap>7.4.0.GA-redhat-SNAPSHOT</version.org.jboss.eap>
+        <version.org.jboss.eap>7.4.0.GA-redhat-00003</version.org.jboss.eap>
         <version.org.jboss.galleon>4.2.8.Final</version.org.jboss.galleon>
         <version.org.jboss.jboss-dmr>1.5.1.Final-redhat-00001</version.org.jboss.jboss-dmr>
         <version.org.wildfly.core>15.0.1.Final-redhat-00001</version.org.wildfly.core>
