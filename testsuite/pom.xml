@@ -35,7 +35,7 @@
         <node0>127.0.0.1</node0>
         <org.jboss.eap.datasources.mssqlserver.driver.version>9.2.1.jre8</org.jboss.eap.datasources.mssqlserver.driver.version>
         <org.jboss.eap.datasources.oracle.driver.version>19.3.0.0</org.jboss.eap.datasources.oracle.driver.version>
-        <org.jboss.eap.datasources.postgresql.driver.version>42.2.20</org.jboss.eap.datasources.postgresql.driver.version>
+        <org.jboss.eap.datasources.postgresql.driver.version>42.3.3</org.jboss.eap.datasources.postgresql.driver.version>
         <testLogToFile>true</testLogToFile>
     </properties>
 
